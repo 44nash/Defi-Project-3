@@ -6,6 +6,8 @@ import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
 import { Row, Col, Card, CardGroup, ListGroup } from "react-bootstrap";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
+
+
 function Home() {
   return (
           <div className="main-area">
@@ -30,6 +32,7 @@ function Home() {
               <small className="text-muted">Developer </small>
             </Card.Footer>
           </Card>
+          
           <Card>
             <Card.Img
               variant="top"
@@ -166,6 +169,7 @@ function Home() {
         {/* <h2>Technical Indicators</h2> */}
         {/* <ListGroup>
           <ListGroup.Item
+
             className="list_link"
             action
             href="https://www.investopedia.com/terms/s/sma.asp"
