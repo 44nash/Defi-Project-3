@@ -69,8 +69,6 @@ function App({ pageProps }) {
   return (
     <Web3ReactProvider getLibrary={getLibrary}
       >
-      
-      Your Ethereum address:{addr}
       <Router>
         <div className="App">
           <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
@@ -139,7 +137,7 @@ function App({ pageProps }) {
               <Route exact path="/future"></Route>
 
               <Route exact path="/defi">
-                <Defi {...pageProps}/>
+                <Defi addr={ addr } {...pageProps}/>
               </Route>
 
 

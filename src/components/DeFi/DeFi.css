@@ -90,3 +90,18 @@ p {
 .list_link:hover {
   color: #3366bb;
 }
+
+.spacer {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding-top: 20px;
+}
+
+.connection-button {
+  width: 40%;
+  margin: auto;
+  padding-bottom: 10px;
+  text-align: center;
+  /* border: 3px solid green; */
+}
