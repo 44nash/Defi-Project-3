@@ -105,3 +105,13 @@ p {
   text-align: center;
   /* border: 3px solid green; */
 }
+
+.arrow-button {
+  width: 40%;
+  margin: auto;
+  padding-bottom: 10px;
+  text-align: center;
+}
+
+.rightArrow {
+}
