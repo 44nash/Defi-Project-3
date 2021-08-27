@@ -195,7 +195,7 @@ export default function DeFi(props) {
             keyboard={false}
           >
             <Modal.Header closeButton>
-              <Modal.Title>Modal title</Modal.Title>
+              <Modal.Title> Ready ???</Modal.Title>
             </Modal.Header>
             <Modal.Body>
               Are these the one's you choose ?
