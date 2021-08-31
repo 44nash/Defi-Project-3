@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import "./Dev_M.css";
+import React, { Component } from 'react';
+import './Dev_M.css';
 import {
   Row,
   Col,
@@ -7,7 +7,7 @@ import {
   CardGroup,
   ListGroup,
   ListGroupItem,
-} from "react-bootstrap";
+} from 'react-bootstrap';
 
 class Dev_M extends Component {
   render() {
@@ -50,9 +50,10 @@ class Dev_M extends Component {
           </Card.Body>
           <h2>Tech</h2>
           <ListGroup className="list-group-flush">
-            <ListGroupItem>Polygon.io</ListGroupItem>
-            <ListGroupItem>Python / Pandas</ListGroupItem>
-            <ListGroupItem>Scikit-Learn</ListGroupItem>
+            <ListGroupItem>React.js</ListGroupItem>
+            <ListGroupItem>Solidity Smart </ListGroupItem>
+            <ListGroupItem>Firebase</ListGroupItem>
+            <ListGroupItem>Bootstrap</ListGroupItem>
           </ListGroup>
           <Card.Body>
             <Card.Link href="https://www.linkedin.com/in/marcus-nash-32a118148/">

@@ -1,19 +1,17 @@
-import logo from "../../logo.svg";
-import "./Home.css";
-import "bootstrap/dist/css/bootstrap.min.css";
-import Button from "react-bootstrap/Button";
-import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
-import { Row, Col, Card, CardGroup, ListGroup } from "react-bootstrap";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-
-
+import logo from '../../logo.svg';
+import './Home.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Button from 'react-bootstrap/Button';
+import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap';
+import { Row, Col, Card, CardGroup, ListGroup } from 'react-bootstrap';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 function Home() {
   return (
-          <div className="main-area">
+    <div className="main-area">
       <div className="cards-area main-area">
         <h1> Project 3: DeFi-Building-Blocks </h1>
-        <h2 style={{ paddingTop: "15px" }}>Team Members</h2>
+        <h2 style={{ paddingTop: '15px' }}>Team Members</h2>
         <CardGroup>
           <Card>
             <Card.Img
@@ -23,26 +21,24 @@ function Home() {
             <Card.Body>
               <Card.Title>Marcus</Card.Title>
               <Card.Text>
-                Used Polygon.io to stream live data form the bot, used basic
-                Linear-Regression, Machine Learning and Deep Learning algorithms
-                to predict price and as well as worked on a few indicators.
+                Used React.js and Bootstrap for the frontend and design. The
+                backend uses Firebase, and Solidity Smart contracts on the
+                Rinkeby Test network
               </Card.Text>
             </Card.Body>
             <Card.Footer>
               <small className="text-muted">Developer </small>
             </Card.Footer>
           </Card>
-          
+
           <Card>
             <Card.Img
               variant="top"
-              src="https://avatars.githubusercontent.com/u/9807654?v=4"
+              src="https://avatars.githubusercontent.com/u/18093061?v=4"
             />
 
             <Card.Body>
-              <Card.Title>
-              Derrick Claye
-              </Card.Title>
+              <Card.Title>Derrick Claye</Card.Title>
               <Card.Text>What did you do work on short sentence</Card.Text>
             </Card.Body>
             <Card.Footer>
@@ -55,45 +51,38 @@ function Home() {
               src="https://avatars.githubusercontent.com/u/77021656?v=4"
             />
             <Card.Body>
-              <Card.Title>
-                Jeremy Seidman
-              </Card.Title>
+              <Card.Title>Jeremy Seidman</Card.Title>
               <Card.Text>What did you do work on short sentence</Card.Text>
             </Card.Body>
             <Card.Footer>
               <small className="text-muted">Developer </small>
             </Card.Footer>
           </Card>
-          </CardGroup>
-          <CardGroup>
+        </CardGroup>
+        <CardGroup>
           {/*  */}
           <Card>
             <Card.Img
               variant="top"
-              src="https://avatars.githubusercontent.com/u/43149015?v=4"
+              src="https://avatars.githubusercontent.com/u/40152804?v=4"
             />
             <Card.Body>
-              <Card.Title>
-                Kamil Wojnowski
-              </Card.Title>
+              <Card.Title>Kamil Wojnowski</Card.Title>
               <Card.Text>What did you do work on short sentence</Card.Text>
             </Card.Body>
             <Card.Footer>
               <small className="text-muted">Developer </small>
             </Card.Footer>
           </Card>
-          
-        
-           {/*  */}
+
+          {/*  */}
           <Card>
             <Card.Img
               variant="top"
-              src="https://avatars.githubusercontent.com/u/43149015?v=4"
+              src="https://avatars.githubusercontent.com/u/70281394?v=4"
             />
             <Card.Body>
-              <Card.Title>
-              Rikin Patel
-              </Card.Title>
+              <Card.Title>Rikin Patel</Card.Title>
               <Card.Text>What did you do work on short sentence</Card.Text>
             </Card.Body>
             <Card.Footer>
@@ -104,12 +93,10 @@ function Home() {
           <Card>
             <Card.Img
               variant="top"
-              src="https://avatars.githubusercontent.com/u/43149015?v=4"
+              src="https://avatars.githubusercontent.com/u/13008330?v=4"
             />
             <Card.Body>
-              <Card.Title>
-              Shaunjay Brown
-              </Card.Title>
+              <Card.Title>Shaunjay Brown</Card.Title>
               <Card.Text>What did you do work on short sentence</Card.Text>
             </Card.Body>
             <Card.Footer>
@@ -123,18 +110,24 @@ function Home() {
         <h2> Introduction</h2>
 
         <p>
-          {" "}
-          What is Lorem Ipsum Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem Ipsum has been the industry's standard dummy text ever since the 1500s when an unknown printer took a galley of type and scrambled it to make a type specimen book it has?
-
+          {' '}
+          What is Lorem Ipsum Lorem Ipsum is simply dummy text of the printing
+          and typesetting industry Lorem Ipsum has been the industry's standard
+          dummy text ever since the 1500s when an unknown printer took a galley
+          of type and scrambled it to make a type specimen book it has?
         </p>
 
         <p>
-        What is Lorem Ipsum Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem Ipsum has been the industry's standard dummy text ever since the 1500s when an unknown printer took a galley of type and scrambled it to make a type specimen book it has?
-
+          What is Lorem Ipsum Lorem Ipsum is simply dummy text of the printing
+          and typesetting industry Lorem Ipsum has been the industry's standard
+          dummy text ever since the 1500s when an unknown printer took a galley
+          of type and scrambled it to make a type specimen book it has?
         </p>
         <p>
-        What is Lorem Ipsum Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem Ipsum has been the industry's standard dummy text ever since the 1500s when an unknown printer took a galley of type and scrambled it to make a type specimen book it has?
-
+          What is Lorem Ipsum Lorem Ipsum is simply dummy text of the printing
+          and typesetting industry Lorem Ipsum has been the industry's standard
+          dummy text ever since the 1500s when an unknown printer took a galley
+          of type and scrambled it to make a type specimen book it has?
           <a href="https://alpaca.markets/docs/api-documentation/how-to/market-data/">
             Alpaca
           </a>
@@ -145,7 +138,7 @@ function Home() {
           .
           <a href="https://www.ig.com/us/trading-strategies/10-trading-indicators-every-trader-should-know-190604">
             Technical indicators
-          </a>{" "}
+          </a>{' '}
           will be constructed from the input OHLCV data and transformed into
           machine-learning features using a
           <a href="https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html">
@@ -156,8 +149,10 @@ function Home() {
           <a href="https://scikit-learn.org/stable/modules/ensemble.html">
             Ensemble methods
           </a>
-          What is Lorem Ipsum Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem Ipsum has been the industry's standard dummy text ever since the 1500s when an unknown printer took a galley of type and scrambled it to make a type specimen book it has?
-
+          What is Lorem Ipsum Lorem Ipsum is simply dummy text of the printing
+          and typesetting industry Lorem Ipsum has been the industry's standard
+          dummy text ever since the 1500s when an unknown printer took a galley
+          of type and scrambled it to make a type specimen book it has?
           <a className="" href="https://finnhub.io/docs/api/news-sentiment">
             sentiment analysis from FinnHub
           </a>
@@ -198,7 +193,7 @@ function Home() {
             Triple Exponential Moving Average
           </ListGroup.Item>
         </ListGroup> */}
-        <h2 style={{ paddingTop: "25px" }}>References</h2>
+        <h2 style={{ paddingTop: '25px' }}>References</h2>
         <ListGroup>
           <ListGroup.Item
             className="list_link"

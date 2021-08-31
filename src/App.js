@@ -41,6 +41,7 @@ import SwipeableViews from 'react-swipeable-views';
 
 import { Signup } from './components/Signup/Signup';
 import { Login } from './components/Login/Login';
+import { useHistory } from 'react-router-dom';
 
 // // https://www.npmjs.com/package/web3-react
 // import Web3Provider from 'web3-react';
@@ -64,6 +65,13 @@ function getLibrary(provider) {
 // https://react-bootstrap.netlify.app/components/dropdowns/#menu-headers
 
 const Main = props => {
+  const history = useHistory();
+
+  function handleHistory() {
+    //props.history.push('/');
+    firebase.auth().signOut().then();
+  }
+
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -103,15 +111,23 @@ const Main = props => {
                     </NavDropdown.Item>
                     <NavDropdown.Divider />
                     <NavDropdown.Item href="/dev-n">
-                      Nathan Info
+                      Kamil Wojnowski --N
                     </NavDropdown.Item>
                     <NavDropdown.Divider />
                     <NavDropdown.Item href="/dev-b">
-                      Benny Info
+                      Rikin Patel --B
                     </NavDropdown.Item>
                     <NavDropdown.Divider />
                     <NavDropdown.Item href="/dev-e">
-                      Emmanuel Info
+                      Jeremy Seidman --E
+                    </NavDropdown.Item>
+                    <NavDropdown.Divider />
+                    <NavDropdown.Item href="/dev-e">
+                      Derrick Claye
+                    </NavDropdown.Item>
+                    <NavDropdown.Divider />
+                    <NavDropdown.Item href="/dev-e">
+                      Shaunjay Brown
                     </NavDropdown.Item>
                   </NavDropdown>
                   <NavDropdown title="Weeks" id="collasible-nav-dropdown">
@@ -142,13 +158,8 @@ const Main = props => {
                     <Button variant="secondary" onClick={handleClose}>
                       Close
                     </Button>
-                    <Button
-                      variant="primary"
-                      onClick={() => {
-                        firebase.auth().signOut();
-                      }}
-                    >
-                      Understood
+                    <Button variant="primary" href="/" onClick={handleHistory}>
+                      Yes
                     </Button>
                   </Modal.Footer>
                 </Modal>
@@ -161,12 +172,16 @@ const Main = props => {
               <Route exact path="/">
                 <Home />
               </Route>
+              <Route exact path="/home">
+                <Home />
+              </Route>
               <Route exact path="/week-1">
                 <Week_1 />
               </Route>
               <Route exact path="/week-2">
                 <Week_2 />
               </Route>
+
               <Route exact path="/dev-m">
                 <Dev_M />
               </Route>
@@ -180,13 +195,14 @@ const Main = props => {
               <Route exact path="/dev-e">
                 <Dev_E />
               </Route>
+
               <Route exact path="/graphs">
                 <Graphs />
               </Route>
               <Route exact path="/future"></Route>
 
               <Route exact path="/defi">
-                <Defi addr={addr} {...props.pageProps} />
+                <Defi addr={addr} {...props.pageProps} firebase={firebase} />
               </Route>
             </Switch>
           </div>
@@ -200,7 +216,7 @@ const Main = props => {
             variant="dark"
           >
             <Container>
-              <Navbar.Brand href="https://github.com/44nash/Trading-Bot-project-2">
+              <Navbar.Brand href="https://github.com/kamilww/DeFi-Building-Blocks">
                 Github Code (Click me)
               </Navbar.Brand>
             </Container>
@@ -270,15 +286,23 @@ const FrontPage = props => {
                     </NavDropdown.Item>
                     <NavDropdown.Divider />
                     <NavDropdown.Item href="/dev-n">
-                      Nathan Info
+                      Kamil Wojnowski
                     </NavDropdown.Item>
                     <NavDropdown.Divider />
                     <NavDropdown.Item href="/dev-b">
-                      Benny Info
+                      Rikin Patel
                     </NavDropdown.Item>
                     <NavDropdown.Divider />
                     <NavDropdown.Item href="/dev-e">
-                      Emmanuel Info
+                      Jeremy Seidman
+                    </NavDropdown.Item>
+                    <NavDropdown.Divider />
+                    <NavDropdown.Item href="/dev-e">
+                      Derrick Claye
+                    </NavDropdown.Item>
+                    <NavDropdown.Divider />
+                    <NavDropdown.Item href="/dev-e">
+                      Shaunjay Brown
                     </NavDropdown.Item>
                   </NavDropdown>
                   <NavDropdown title="Weeks" id="collasible-nav-dropdown">
@@ -304,7 +328,7 @@ const FrontPage = props => {
                     <Modal.Body>
                       <div>
                         <Tabs
-                          defaultActiveKey="signup"
+                          defaultActiveKey="login"
                           className="mb-3"
                           style={{ display: 'flex' }}
                         >
@@ -320,6 +344,12 @@ const FrontPage = props => {
                     <Modal.Footer>
                       <Button variant="secondary" onClick={handleClose}>
                         Close
+                      </Button>
+                      <Button
+                        variant="secondary"
+                        onClick={() => firebase.auth().signInAnonymously()}
+                      >
+                        Try Anonymously
                       </Button>
                     </Modal.Footer>
                   </Modal>
@@ -364,7 +394,7 @@ const FrontPage = props => {
           </div>
 
           {/* footer */}
-          {/* <Navbar
+          <Navbar
             className="footer"
             collapseOnSelect
             expand="lg"
@@ -372,11 +402,11 @@ const FrontPage = props => {
             variant="dark"
           >
             <Container>
-              <Navbar.Brand href="https://github.com/44nash/Trading-Bot-project-2">
+              <Navbar.Brand href="https://github.com/kamilww/DeFi-Building-Blocks">
                 Github Code (Click me)
               </Navbar.Brand>
             </Container>
-          </Navbar> */}
+          </Navbar>
         </div>
       </Router>
     </Web3ReactProvider>
@@ -390,7 +420,7 @@ function App({ pageProps }) {
         <FirebaseAuthConsumer>
           {({ isSignedIn, user, providerId }) => {
             if (isSignedIn) {
-              return <Main {...pageProps}></Main>;
+              return <Main {...pageProps} firebase={firebase}></Main>;
             } else {
               return <FrontPage {...pageProps} />;
             }

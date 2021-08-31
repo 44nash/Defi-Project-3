@@ -17,6 +17,8 @@ import { Form, FormGroup, FormControl, ControlLabel } from 'react-bootstrap';
 
 // https://react-icons.github.io/react-icons
 import { ImArrowRight } from 'react-icons/im';
+import Alert from 'react-bootstrap/Alert';
+import { render } from '@testing-library/react';
 
 // https://shmoji.medium.com/web3-react-connect-users-to-metamask-or-any-wallet-from-your-frontend-241fd538ed39
 export default function DeFi(props) {
@@ -34,17 +36,52 @@ export default function DeFi(props) {
     yieldFarm: false,
   });
 
+  const [showAlert, setShowAlert] = useState(true);
   const handleSwap = () => {
     setAllstate({ swap: !allState.swap, liquidity: false, yieldFarm: false });
+    setShowAlert(allState.swap);
   };
 
   const handleLiquidity = () => {
     setAllstate({ swap: true, liquidity: true, yieldFarm: false });
+    setShowAlert(false);
   };
 
   const handleYieldFarm = () => {
     setAllstate({ swap: true, liquidity: true, yieldFarm: true });
+    setShowAlert(false);
   };
+
+  // const handleDefiOptions = () => {
+  //   if (
+  //     ((allState.swap === allState.liquidity) === allState.yieldFarm) ===
+  //     true
+  //   ) {
+  //     const uid = props.firebase.auth().currentUser.uid;
+  //     const db = props.firebase.firestore();
+  //     const userRef = db.collection('users').doc(uid);
+  //     userRef.update({
+  //       isFarming: true,
+  //     });
+  //   } else if (
+  //     (allState.swap === allState.liquidity) === true &&
+  //     !allState.yieldFarm
+  //   ) {
+  //     // run the liquidity and swap from stuff from contract
+  //   } else if (
+  //     allState.swap === true &&
+  //     !allState.liquidity === !allState.yieldFarm
+  //   ) {
+  //     // run swap code from contract
+  //   } else if (
+  //     ((allState.swap === allState.liquidity) === allState.yieldFarm) ===
+  //     false
+  //   ) {
+  //     //  alert please choose something on the defi page
+  //     // console.log('nothin choosen dude');
+  //     // setShowAlert(true);
+  //   }
+  // };
 
   ///===========
 
@@ -89,18 +126,25 @@ export default function DeFi(props) {
 
     const web3 = new Web3(
       new Web3.providers.HttpProvider(
-        'https://ropsten.infura.io/v3/0b3f4d840073404794f22f60c1bc089c',
+        'https://rinkeby.infura.io/v3/0b3f4d840073404794f22f60c1bc089c',
       ),
     );
 
     web3.eth.getBalance(address, function (err, result) {
       if (err) {
         console.log(err);
-
         setBalance(0);
       } else {
         console.log(web3.utils.fromWei(result, 'ether') + ' ETH');
         setBalance(web3.utils.fromWei(result, 'ether'));
+
+        const uid = props.firebase.auth().currentUser.uid;
+        const db = props.firebase.firestore();
+        const userRef = db.collection('users').doc(uid);
+        userRef.update({
+          currentAddress: account,
+          addressUsed: props.firebase.firestore.FieldValue.arrayUnion(account),
+        });
       }
     });
   }
@@ -238,7 +282,23 @@ export default function DeFi(props) {
               <Button variant="secondary" onClick={handleClose}>
                 Close
               </Button>
+              {/* onClick={handleDefiOptions} */}
               <Button variant="primary">Final Submit </Button>
+              {showAlert ? (
+                <Alert
+                  variant="danger"
+                  onClose={() => setShow(false)}
+                  dismissible
+                >
+                  <Alert.Heading>Oh snap! You got an error!</Alert.Heading>
+                  <p>
+                    Go back. Make sure you are connected and that you have
+                    choose a selected service please :)
+                  </p>
+                </Alert>
+              ) : (
+                <div></div>
+              )}
             </Modal.Footer>
           </Modal>
           <br />
