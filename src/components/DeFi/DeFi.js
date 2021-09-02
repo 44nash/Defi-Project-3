@@ -20,6 +20,35 @@ import { ImArrowRight } from 'react-icons/im';
 import Alert from 'react-bootstrap/Alert';
 import { render } from '@testing-library/react';
 
+import {
+  pumpFarm,
+  addLiquidity,
+  test,
+  swap,
+  swapAndLiquidity,
+  checkMetaMaskConnection,
+  swapWithInput,
+} from './uniswap';
+import SimpleCard from './FarmObjects/SimpleCard';
+import FarmingStats from './FarmObjects/FarmingStats';
+
+const cardInfo = {
+  swap: {
+    path: 'Simple Swap',
+    description: 'Swap Ether for UNI',
+  },
+  swapLiq: {
+    path: 'Swap | Provide Liquidity',
+    description:
+      'Swap Ether for UNI then provide liquidity to UNI/WETH liquidity pool.',
+  },
+  swapLiqFarm: {
+    path: 'Swap | Provide Liquidity | Yield Farm',
+    description:
+      'Swap Ether for UNI, provide liquidity to UNI/WETH liquidity pool, then use LP Tokens to Yield Farm PumpToken  ',
+  },
+};
+
 // https://shmoji.medium.com/web3-react-connect-users-to-metamask-or-any-wallet-from-your-frontend-241fd538ed39
 export default function DeFi(props) {
   // Tutorial
@@ -51,6 +80,10 @@ export default function DeFi(props) {
     setAllstate({ swap: true, liquidity: true, yieldFarm: true });
     setShowAlert(false);
   };
+
+  const [showFarmingStats, setShowFarmingStats] = useState(true);
+
+  const [submitted, setSubmitted] = useState(false);
 
   // const handleDefiOptions = () => {
   //   if (
@@ -283,7 +316,15 @@ export default function DeFi(props) {
                 Close
               </Button>
               {/* onClick={handleDefiOptions} */}
-              <Button variant="primary">Final Submit </Button>
+              <Button
+                variant="primary"
+                onClick={() => {
+                  setSubmitted(true);
+                  handleClose();
+                }}
+              >
+                Final Submit
+              </Button>
               {showAlert ? (
                 <Alert
                   variant="danger"
@@ -293,7 +334,7 @@ export default function DeFi(props) {
                   <Alert.Heading>Oh snap! You got an error!</Alert.Heading>
                   <p>
                     Go back. Make sure you are connected and that you have
-                    choose a selected service please :)
+                    choose a selected service please. :)
                   </p>
                 </Alert>
               ) : (
@@ -303,7 +344,70 @@ export default function DeFi(props) {
           </Modal>
           <br />
         </div>
+        <br />
+        <br />
+        {/* The actual swaping */}
+        {submitted ? (
+          <div>
+            <div className="App-header">
+              <h1
+                style={{
+                  alignSelf: 'start',
+                  marginLeft: '15px',
+                  color: 'pink',
+                  fontFamily: 'Brush Script MT',
+                }}
+              >
+                BATCHER{' '}
+              </h1>
+              {showFarmingStats ? <FarmingStats /> : <div></div>}
+            </div>
+            <div className="content">
+              {allState.swap === true &&
+              allState.liquidity === false &&
+              allState.yieldFarm === false ? (
+                <SimpleCard
+                  path={cardInfo.swap.path}
+                  description={cardInfo.swap.description}
+                  provideLiquidity={false}
+                  functionLetter="a"
+                />
+              ) : (
+                <div></div>
+              )}
+              {allState.swap === true &&
+              allState.liquidity === true &&
+              allState.yieldFarm === false ? (
+                <SimpleCard
+                  path={cardInfo.swapLiq.path}
+                  description={cardInfo.swapLiq.description}
+                  provideLiquidity={true}
+                  functionLetter="b"
+                />
+              ) : (
+                <div></div>
+              )}
 
+              {allState.swap &&
+              allState.liquidity &&
+              allState.yieldFarm === true ? (
+                <SimpleCard
+                  path={cardInfo.swapLiqFarm.path}
+                  description={cardInfo.swapLiqFarm.description}
+                  provideLiquidity={true}
+                  functionLetter="c"
+                  farming={true}
+                />
+              ) : (
+                <div></div>
+              )}
+            </div>
+
+            <br></br>
+          </div>
+        ) : (
+          <div>Please submit you optins for automated defi</div>
+        )}
         <br />
 
         <p> {JSON.stringify(allState)} </p>
