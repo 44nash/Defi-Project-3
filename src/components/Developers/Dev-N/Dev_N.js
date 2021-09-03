@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import "./Dev_N.css";
+import React, { Component } from 'react';
+import './Dev_N.css';
 import {
   Row,
   Col,
@@ -7,7 +7,7 @@ import {
   CardGroup,
   ListGroup,
   ListGroupItem,
-} from "react-bootstrap";
+} from 'react-bootstrap';
 class Dev_N extends Component {
   render() {
     return (
@@ -15,10 +15,10 @@ class Dev_N extends Component {
         <Card className="cards-area">
           <Card.Img
             variant="top"
-            src="https://avatars.githubusercontent.com/u/9807654?v=4"
+            src="https://avatars.githubusercontent.com/u/40152804?v=4"
           />
           <Card.Body>
-            <Card.Title>Nathan</Card.Title>
+            <Card.Title>Kamil Wojnowski</Card.Title>
             <Card.Text>
               <p>
                 The start of this was to work on indicators. Indicators where
@@ -49,15 +49,14 @@ class Dev_N extends Component {
           </Card.Body>
           <h2>Tech</h2>
           <ListGroup className="list-group-flush">
-            <ListGroupItem>Polygon.io</ListGroupItem>
+            <ListGroupItem>Solidity</ListGroupItem>
             <ListGroupItem>Python / Pandas</ListGroupItem>
-            <ListGroupItem>Scikit-Learn</ListGroupItem>
           </ListGroup>
           <Card.Body>
-            <Card.Link href="https://www.linkedin.com/in/nathan-froemming-a45611205/">
+            <Card.Link href="https://www.linkedin.com/in/kamil-wojnowski/">
               LinkedIn
             </Card.Link>
-            <Card.Link href="https://github.com/nfroemm">GitHub</Card.Link>
+            <Card.Link href="https://github.com/kamilww">GitHub</Card.Link>
           </Card.Body>
         </Card>
       </div>

@@ -39,7 +39,7 @@ function Home() {
 
             <Card.Body>
               <Card.Title>Derrick Claye</Card.Title>
-              <Card.Text>What did you do work on short sentence</Card.Text>
+              <Card.Text>Uniswap V2 Router and Pump Farm integration</Card.Text>
             </Card.Body>
             <Card.Footer>
               <small className="text-muted">Developer </small>
@@ -52,7 +52,9 @@ function Home() {
             />
             <Card.Body>
               <Card.Title>Jeremy Seidman</Card.Title>
-              <Card.Text>What did you do work on short sentence</Card.Text>
+              <Card.Text>
+                Hands on in all overall concepts and Order of Operations
+              </Card.Text>
             </Card.Body>
             <Card.Footer>
               <small className="text-muted">Developer </small>
@@ -68,7 +70,10 @@ function Home() {
             />
             <Card.Body>
               <Card.Title>Kamil Wojnowski</Card.Title>
-              <Card.Text>What did you do work on short sentence</Card.Text>
+              <Card.Text>
+                Worked on the yield farm and created the ERC20 token for this
+                project.
+              </Card.Text>
             </Card.Body>
             <Card.Footer>
               <small className="text-muted">Developer </small>
@@ -83,7 +88,11 @@ function Home() {
             />
             <Card.Body>
               <Card.Title>Rikin Patel</Card.Title>
-              <Card.Text>What did you do work on short sentence</Card.Text>
+              <Card.Text>
+                I worked on developing our two smart contracts using truffle,
+                writing test coverage for the smart contracts, and deploying
+                them to the Rinkeby Testnet.
+              </Card.Text>
             </Card.Body>
             <Card.Footer>
               <small className="text-muted">Developer </small>
@@ -97,7 +106,10 @@ function Home() {
             />
             <Card.Body>
               <Card.Title>Shaunjay Brown</Card.Title>
-              <Card.Text>What did you do work on short sentence</Card.Text>
+              <Card.Text>
+                Solidity smart contract for the lottery for user and firestore
+                intergration
+              </Card.Text>
             </Card.Body>
             <Card.Footer>
               <small className="text-muted">Developer </small>
@@ -108,14 +120,17 @@ function Home() {
 
       <div className="main-area">
         <h2> Introduction</h2>
-
+        <p> 01 - Inline Metamask integration</p>
+        <p>04 Withdrawing LP and harvesting earned PUMP</p>
         <p>
           {' '}
-          What is Lorem Ipsum Lorem Ipsum is simply dummy text of the printing
-          and typesetting industry Lorem Ipsum has been the industry's standard
-          dummy text ever since the 1500s when an unknown printer took a galley
-          of type and scrambled it to make a type specimen book it has?
+          02 Optional direct pathways for: Swap only (currently hardcoded
+          ETH/UNI) Provide liquidity (LP) using single sided currency input
+          (currently hardcoded ETH) Yield farm PUMP token using single sided
+          currency input (currently hardcoded ETH)
         </p>
+        <p> 03 Harvest earned PUMP without withdrawing LP </p>
+        <p> 04 Withdrawing LP and harvesting earned PUMP </p>
 
         <p>
           What is Lorem Ipsum Lorem Ipsum is simply dummy text of the printing

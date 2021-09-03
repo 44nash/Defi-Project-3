@@ -1,0 +1,66 @@
+.cards-area {
+  width: 70%;
+  height: 34%;
+  margin: auto;
+  text-align: center;
+  background-color: white;
+}
+
+.main-area {
+  width: 80%;
+  height: 34%;
+  margin: auto;
+  text-align: center;
+  background-color: white;
+  padding: 10px 0px;
+  overflow: auto;
+  padding-bottom: 150px;
+  min-height: 100%;
+}
+
+.footer {
+  position: relative;
+  margin-top: -150px; /* negative value of footer height */
+  height: 150px;
+  clear: both;
+  padding-top: 20px;
+  color: #fff;
+}
+
+.hyperlink {
+  word-spacing: 10px;
+}
+
+card {
+  padding: 20px;
+}
+p {
+  word-spacing: 5px;
+  text-align: left;
+}
+
+.list_link {
+  color: black;
+}
+.list_link:hover {
+  color: #3366bb;
+}
+.row {
+  display: -ms-flexbox; /* IE 10 */
+  display: flex;
+  -ms-flex-wrap: wrap; /* IE 10 */
+  flex-wrap: wrap;
+  padding: 0 4px;
+}
+
+/* Create two equal columns that sits next to each other */
+.column {
+  -ms-flex: 50%; /* IE 10 */
+  flex: 50%;
+  padding: 0 4px;
+}
+
+.column img {
+  margin-top: 8px;
+  vertical-align: middle;
+}

@@ -20,6 +20,9 @@ import { ImArrowRight } from 'react-icons/im';
 import Alert from 'react-bootstrap/Alert';
 import { render } from '@testing-library/react';
 
+import Tabs from 'react-bootstrap/Tabs';
+import Tab from 'react-bootstrap/Tab';
+
 import {
   pumpFarm,
   addLiquidity,
@@ -31,6 +34,10 @@ import {
 } from './uniswap';
 import SimpleCard from './FarmObjects/SimpleCard';
 import FarmingStats from './FarmObjects/FarmingStats';
+
+import DeFiSwap from './DeFiCards/DeFiSwap';
+import DeFiLiquidity from './DeFiCards/DeFiLiquidity';
+import DeFiYieldFarm from './DeFiCards/DeFiYieldFarm';
 
 const cardInfo = {
   swap: {
@@ -59,6 +66,37 @@ export default function DeFi(props) {
   // const fm = new Fortmatic('pk_live_7450BD27E0F9931C', 'ropsten');
   // const fm = new Fortmatic('pk_live_7450BD27E0F9931C', 'kovan');
 
+  // state = {
+  //   amount: 0,
+  //   swapHash: '',
+  // };
+  // const [state, setState] = useState({
+  //   amount: 0,
+  //   swapHash: '',
+  // });
+
+  // componentDidMount() {
+  //   checkMetaMaskConnection()
+  // }
+  // useEffect(() => {
+  //   // Your code here
+  //   checkMetaMaskConnection();
+  // }, []);
+
+  // amountInputHandler = e => {
+  //   this.setState({ amount: e.target.value });
+  // };
+
+  // swap = async () => {
+  //   let hash = await swapWithInput(this.state.amount);
+  //   this.setState({
+  //     amount: 0,
+  //     swapHash: hash,
+  //   });
+  // };
+
+  //
+
   const [allState, setAllstate] = useState({
     swap: false,
     liquidity: false,
@@ -84,37 +122,6 @@ export default function DeFi(props) {
   const [showFarmingStats, setShowFarmingStats] = useState(true);
 
   const [submitted, setSubmitted] = useState(false);
-
-  // const handleDefiOptions = () => {
-  //   if (
-  //     ((allState.swap === allState.liquidity) === allState.yieldFarm) ===
-  //     true
-  //   ) {
-  //     const uid = props.firebase.auth().currentUser.uid;
-  //     const db = props.firebase.firestore();
-  //     const userRef = db.collection('users').doc(uid);
-  //     userRef.update({
-  //       isFarming: true,
-  //     });
-  //   } else if (
-  //     (allState.swap === allState.liquidity) === true &&
-  //     !allState.yieldFarm
-  //   ) {
-  //     // run the liquidity and swap from stuff from contract
-  //   } else if (
-  //     allState.swap === true &&
-  //     !allState.liquidity === !allState.yieldFarm
-  //   ) {
-  //     // run swap code from contract
-  //   } else if (
-  //     ((allState.swap === allState.liquidity) === allState.yieldFarm) ===
-  //     false
-  //   ) {
-  //     //  alert please choose something on the defi page
-  //     // console.log('nothin choosen dude');
-  //     // setShowAlert(true);
-  //   }
-  // };
 
   ///===========
 
@@ -227,12 +234,13 @@ export default function DeFi(props) {
           Connect to MetaMask
         </Button>
         <br />
-
+        <br />
+        <br />
         {/*  Picking: Swap Liquid  or Farm */}
-        <div>
-          <br />
-          {/* checked={!!allState.swap} */}
-          <Button
+        {/* <div>
+          <br /> */}
+        {/* checked={!!allState.swap} */}
+        {/* <Button
             className="arrow-button"
             variant={allState.swap ? 'success' : 'info'}
             onClick={handleSwap}
@@ -257,7 +265,7 @@ export default function DeFi(props) {
             onClick={handleYieldFarm}
           >
             <ImArrowRight className="rightArrow" />
-            <span> Yield Farm PRJT </span>
+            <span> Yield Farm PUMP </span>
           </Button>
           <br />
           <br />
@@ -308,15 +316,15 @@ export default function DeFi(props) {
                 <label for="swap" style={{ paddingLeft: '10px' }}>
                   Yield-Farm
                 </label>
-              </InputGroup>
-              <p> {JSON.stringify(allState)} </p>
-            </Modal.Body>
+              </InputGroup> */}
+        {/* <p> {JSON.stringify(allState)} </p> */}
+        {/* </Modal.Body>
             <Modal.Footer>
               <Button variant="secondary" onClick={handleClose}>
                 Close
-              </Button>
-              {/* onClick={handleDefiOptions} */}
-              <Button
+              </Button> */}
+        {/* onClick={handleDefiOptions} */}
+        {/* <Button
                 variant="primary"
                 onClick={() => {
                   setSubmitted(true);
@@ -345,45 +353,22 @@ export default function DeFi(props) {
           <br />
         </div>
         <br />
-        <br />
+        <br /> */}
         {/* The actual swaping */}
-        {submitted ? (
+        {/* {submitted ? (
           <div>
-            <div className="App-header">
-              <h1
-                style={{
-                  alignSelf: 'start',
-                  marginLeft: '15px',
-                  color: 'pink',
-                  fontFamily: 'Brush Script MT',
-                }}
-              >
-                BATCHER{' '}
-              </h1>
-              {showFarmingStats ? <FarmingStats /> : <div></div>}
-            </div>
             <div className="content">
               {allState.swap === true &&
               allState.liquidity === false &&
               allState.yieldFarm === false ? (
-                <SimpleCard
-                  path={cardInfo.swap.path}
-                  description={cardInfo.swap.description}
-                  provideLiquidity={false}
-                  functionLetter="a"
-                />
+                <DeFiSwap />
               ) : (
                 <div></div>
               )}
               {allState.swap === true &&
               allState.liquidity === true &&
               allState.yieldFarm === false ? (
-                <SimpleCard
-                  path={cardInfo.swapLiq.path}
-                  description={cardInfo.swapLiq.description}
-                  provideLiquidity={true}
-                  functionLetter="b"
-                />
+                <DeFiLiquidity />
               ) : (
                 <div></div>
               )}
@@ -391,13 +376,7 @@ export default function DeFi(props) {
               {allState.swap &&
               allState.liquidity &&
               allState.yieldFarm === true ? (
-                <SimpleCard
-                  path={cardInfo.swapLiqFarm.path}
-                  description={cardInfo.swapLiqFarm.description}
-                  provideLiquidity={true}
-                  functionLetter="c"
-                  farming={true}
-                />
+                <DeFiYieldFarm />
               ) : (
                 <div></div>
               )}
@@ -408,9 +387,8 @@ export default function DeFi(props) {
         ) : (
           <div>Please submit you optins for automated defi</div>
         )}
-        <br />
-
-        <p> {JSON.stringify(allState)} </p>
+        <br /> */}
+        {/* <p> {JSON.stringify(allState)} </p> */}
 
         <Button
           variant="danger"
@@ -420,7 +398,6 @@ export default function DeFi(props) {
           Disconnect
         </Button>
         <br />
-
         <br />
         {active ? (
           <span>
@@ -433,9 +410,34 @@ export default function DeFi(props) {
         ) : (
           <span>Not connected</span>
         )}
-
         {/* <ImArrowRight />
         <ImArrowRight /> */}
+        <br />
+        <br />
+        <div>Please submit you optins for automated defi</div>
+        <br />
+        <br />
+        <Tabs
+          defaultActiveKey="swap"
+          id="uncontrolled-tab-example"
+          className="mb-3"
+        >
+          <Tab eventKey="swap" title="Swap">
+            <div>
+              <DeFiSwap />
+            </div>
+          </Tab>
+          <Tab eventKey="liquidity" title="Liquidity">
+            <div>
+              <DeFiLiquidity />
+            </div>
+          </Tab>
+          <Tab eventKey="yieldFarm" title="YieldFarm">
+            <div>
+              <DeFiYieldFarm />
+            </div>
+          </Tab>
+        </Tabs>
       </div>
     </div>
   );

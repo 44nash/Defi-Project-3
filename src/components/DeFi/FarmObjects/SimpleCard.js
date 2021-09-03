@@ -11,7 +11,7 @@ import { BeatLoader } from 'react-spinners';
 const cardStyle = {
   flex: 1,
   height: '400px',
-  width: '500px',
+  width: '100%',
   backgroundImage: 'linear-gradient(180deg, #1F2025, dodgerblue)',
   borderRadius: '20px',
   margin: '10px',

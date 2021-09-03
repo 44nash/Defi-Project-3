@@ -26,6 +26,7 @@ class FarmingStats extends React.Component {
           marginLeft: '10px',
           backgroundImage: 'linear-gradient(180deg, #1F2025, pink)',
           borderRadius: '20px',
+          color: 'white',
         }}
       >
         {this.state.isStaking === true ? (

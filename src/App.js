@@ -15,6 +15,7 @@ import Dev_N from './components/Developers/Dev-N/Dev_N';
 import Dev_E from './components/Developers/Dev-E/Dev_E';
 import Dev_B from './components/Developers/Dev-B/Dev_B';
 import Graphs from './components/Graphs/Graphs';
+// import Future from './components/Future/Future';
 
 import Defi from './components/DeFi/DeFi';
 
@@ -42,6 +43,7 @@ import SwipeableViews from 'react-swipeable-views';
 import { Signup } from './components/Signup/Signup';
 import { Login } from './components/Login/Login';
 import { useHistory } from 'react-router-dom';
+import Future from './components/Future/Future';
 
 // // https://www.npmjs.com/package/web3-react
 // import Web3Provider from 'web3-react';
@@ -99,7 +101,7 @@ const Main = props => {
         <div className="App">
           <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
             <Container>
-              <Navbar.Brand href="/">Trading-Bot</Navbar.Brand>
+              <Navbar.Brand href="/">Decentralized Finance</Navbar.Brand>
               <Navbar.Toggle aria-controls="responsive-navbar-nav" />
               <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="me-auto">
@@ -137,10 +139,8 @@ const Main = props => {
                   </NavDropdown>
                 </Nav>
                 <Nav>
-                  <Nav.Link href="/graphs">Graphs</Nav.Link>
-                  <Nav.Link eventKey={2} href="#memes">
-                    Future Plans
-                  </Nav.Link>
+                  <Nav.Link href="/photos">Photos</Nav.Link>
+                  <Nav.Link href="/future">Future Plans</Nav.Link>
                   <Nav.Link href="/defi">Defi</Nav.Link>
                 </Nav>
                 <Button onClick={handleShow}>LogOut</Button>
@@ -196,10 +196,12 @@ const Main = props => {
                 <Dev_E />
               </Route>
 
-              <Route exact path="/graphs">
+              <Route exact path="/photos">
                 <Graphs />
               </Route>
-              <Route exact path="/future"></Route>
+              <Route exact path="/future">
+                <Future />
+              </Route>
 
               <Route exact path="/defi">
                 <Defi addr={addr} {...props.pageProps} firebase={firebase} />
@@ -274,7 +276,7 @@ const FrontPage = props => {
         <div className="App">
           <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
             <Container>
-              <Navbar.Brand href="/">Trading-Bot</Navbar.Brand>
+              <Navbar.Brand href="/">Decentralized Finance</Navbar.Brand>
               <Navbar.Toggle aria-controls="responsive-navbar-nav" />
               <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="me-auto">
